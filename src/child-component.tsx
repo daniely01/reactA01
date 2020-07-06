@@ -8,7 +8,7 @@ const ChildComponent: FunctionComponent = () => {
     const display = ()=>{
         showSpinner();
         console.log("Test1 window setTimeout")
-        window.setTimeout(()=>{hideSpinner();}, 3000);
+        window.setTimeout(()=>{hideSpinner();}, 1000);
     }
 
     console.log("Test1 render;")
