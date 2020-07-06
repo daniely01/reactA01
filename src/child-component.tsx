@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useContext } from 'react';
 import { Button } from '@material-ui/core';
-import {SpinnerContext } from './spinner-component';
+import {MyCommonContext } from './common-container-component';
 
-const Test1Component: FunctionComponent = () => {
-    const {showSpinner, hideSpinner} = useContext(SpinnerContext);
+const ChildComponent: FunctionComponent = () => {
+    const {showSpinner, hideSpinner} = useContext(MyCommonContext);
 
     const display = ()=>{
         showSpinner();
@@ -19,4 +19,4 @@ const Test1Component: FunctionComponent = () => {
         </div>
     )
 }
-export default Test1Component;
+export default ChildComponent;
