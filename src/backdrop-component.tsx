@@ -7,8 +7,8 @@ export interface MyBackdropHandle {
 
 
 export const MyBackdrop = React.forwardRef( 
-    (props: BackdropProps, ref) => {
-        const [spinnerOpen, setSpinnerOpen] = useState(props.open);
+    (props: any, ref: any) => {
+        const [spinnerOpen, setSpinnerOpen] = useState(false);
         useImperativeHandle(ref, () => { return { changeState: setSpinnerOpen } });
         return (
             <Backdrop open={spinnerOpen} >

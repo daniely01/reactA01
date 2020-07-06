@@ -24,7 +24,7 @@ export const MyCommonContainer: FunctionComponent<SpinnerProps> = (props: Spinne
     return (
         <MyCommonContext.Provider value={{ showSpinner, hideSpinner }}>
             {props.children}
-            <MyBackdrop ref={backdropRef} open={false}></MyBackdrop>
+            <MyBackdrop ref={backdropRef}></MyBackdrop>
         </MyCommonContext.Provider>
     )
 }
