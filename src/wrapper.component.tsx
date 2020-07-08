@@ -1,5 +1,5 @@
 import React, { createContext, FunctionComponent, ReactNode, useRef } from "react";
-import { MyBackdropHandle2, Spinner } from "./spinner.component"
+import { ISpinnerHandler, Spinner } from "./spinner.component"
 
 export interface IMyCommonContext {
     showSpinner?: { (msg: string): void },
@@ -14,7 +14,7 @@ type WrapperProps = {
 
 
 export const WrapperComponent: FunctionComponent<WrapperProps> = (props: WrapperProps) => {
-    const backdropRef = useRef<MyBackdropHandle2>({ showSpinner: (msg: string) => 0, hideSpinner: () => 0 });
+    const backdropRef = useRef<ISpinnerHandler>({ showSpinner: (msg: string) => 0, hideSpinner: () => 0 });
     const showSpinner = (msg:string) => { 
         backdropRef.current?.showSpinner(msg); 
     };

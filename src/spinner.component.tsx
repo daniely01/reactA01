@@ -2,6 +2,10 @@ import React, { useState, useImperativeHandle } from 'react';
 import { CircularProgress, makeStyles, Box, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 
+export interface ISpinnerHandler {
+    showSpinner(message: string): void,
+    hideSpinner(): void
+};
 
 const useStyles = makeStyles({
     hide: {
@@ -74,9 +78,5 @@ const SpinnerFunc = (props: any, ref: any) => {
     )
 };
 
-export interface MyBackdropHandle2 {
-    showSpinner(message: string): void,
-    hideSpinner(): void
-};
 
 export const Spinner = React.forwardRef(SpinnerFunc);
