@@ -19,7 +19,9 @@ const App: FunctionComponent = () => {
           </header>
           <WrapperComponent>
             <main>
-              <ChildComponent></ChildComponent>
+              <ChildComponent name="child 1"></ChildComponent>
+              <ChildComponent name="child 2"></ChildComponent>
+              <ChildComponent name="child 3"></ChildComponent>
             </main>
           </WrapperComponent>
     </ThemeProvider>

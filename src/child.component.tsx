@@ -2,19 +2,24 @@ import React, { FunctionComponent, useContext } from 'react';
 import { Button } from '@material-ui/core';
 import {MyCommonContext } from './wrapper.component';
 
-const ChildComponent: FunctionComponent = () => {
+interface IChildProp {
+    name: string
+};
+
+const ChildComponent: FunctionComponent<IChildProp> = (props: IChildProp) => {
+    const {name} = props;
     const {showSpinner, hideSpinner} = useContext(MyCommonContext);
 
     const display = ()=>{
-        if(!!showSpinner) showSpinner("test test");
-        console.log("Test1 window setTimeout")
+        if(!!showSpinner) showSpinner(`From ${name}`);
+        console.log( `${name} show spinner`)
         window.setTimeout(()=>{if(!!hideSpinner) hideSpinner();}, 1000);
     }
 
-    console.log("Test1 render;")
+    console.log(`${name} render`)
     return (
         <div>
-            <h1>Test 1</h1>
+            <h1>{name}</h1>
             <Button onClick={display}>Show Spinner</Button>
         </div>
     )
