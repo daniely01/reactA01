@@ -11,7 +11,7 @@ const ChildComponent: FunctionComponent<IChildProp> = (props: IChildProp) => {
     const {showSpinner, hideSpinner} = useContext(MyCommonContext);
 
     const display = ()=>{
-        if(!!showSpinner) showSpinner(`From ${name}`);
+        if(!!showSpinner) showSpinner();
         console.log( `${name} show spinner`)
         window.setTimeout(()=>{if(!!hideSpinner) hideSpinner();}, 1000);
     }

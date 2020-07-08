@@ -1,13 +1,13 @@
 import React, { createContext, FunctionComponent, ReactNode, useRef } from "react";
 import { ISpinnerHandler, Spinner } from "./spinner.component"
 
-export const MyCommonContext = createContext<ISpinnerHandler>({ showSpinner: (msg: string) => 0, hideSpinner: () => 0 });
+export const MyCommonContext = createContext<ISpinnerHandler>({ showSpinner: () => 0, hideSpinner: () => 0 });
 
 export const WrapperComponent: FunctionComponent = (props) => {
     const {children} = props;
-    const backdropRef = useRef<ISpinnerHandler>({ showSpinner: (msg: string) => 0, hideSpinner: () => 0 });
-    const showSpinner = (msg:string) => { 
-        backdropRef.current.showSpinner(msg); 
+    const backdropRef = useRef<ISpinnerHandler>({ showSpinner: () => 0, hideSpinner: () => 0 });
+    const showSpinner = () => { 
+        backdropRef.current.showSpinner(); 
     };
     const hideSpinner = () => { 
         backdropRef.current.hideSpinner(); 
