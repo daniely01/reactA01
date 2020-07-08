@@ -26,11 +26,6 @@ const useStyles = makeStyles({
         width: "100%",
         height: "100%",
         background: "rgba(0, 0, 0, 0.288)",
-        zIndex: 15000
-    },
-    loaderFullscreen: {
-        width: "100%",
-        height: "100%",
         right: 0,
         bottom: 0,
         zIndex: 1000000
@@ -64,7 +59,7 @@ const SpinnerFunc = (props: any, ref: any) => {
     
     return (
         <Box className={clsx( { [classes.loader]: visible }, { [classes.hide] : !visible} ) }>
-            <Box className={clsx(classes.loaderIndicator, classes.loaderFullscreen)}>
+            <Box className={clsx(classes.loaderIndicator)}>
                 <Paper className={classes.paper} >
                     <Box className={classes.loaderImage}>
                         <CircularProgress size={130} thickness={5} />
@@ -77,6 +72,5 @@ const SpinnerFunc = (props: any, ref: any) => {
         </Box>
     )
 };
-
 
 export const Spinner = React.forwardRef(SpinnerFunc);
