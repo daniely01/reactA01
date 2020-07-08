@@ -19,8 +19,8 @@ const ChildComponent: FunctionComponent<IChildProp> = (props: IChildProp) => {
     console.log(`${name} render`)
     return (
         <div>
-            <h1>{name}</h1>
-            <Button onClick={display}>Show Spinner</Button>
+            <h2>{name}</h2>
+            <Button variant="contained" onClick={display}>Show Spinner</Button>
         </div>
     )
 }

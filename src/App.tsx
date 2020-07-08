@@ -15,13 +15,15 @@ const App: FunctionComponent = () => {
   return (
     <ThemeProvider theme={theme}>
           <header>
-            Demo A01 |
+            <h1>React/Typescript Example 1</h1>
+            <h4>Show/Hide a sibling overlay/spinner component using context without re-rendering</h4>
           </header>
           <WrapperComponent>
             <main>
+              <hr></hr>
               <ChildComponent name="child 1"></ChildComponent>
+              <hr></hr>
               <ChildComponent name="child 2"></ChildComponent>
-              <ChildComponent name="child 3"></ChildComponent>
             </main>
           </WrapperComponent>
     </ThemeProvider>
