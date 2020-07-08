@@ -1,14 +1,14 @@
 import React, { FunctionComponent, useContext } from 'react';
 import { Button } from '@material-ui/core';
-import {MyCommonContext } from './common-container-component';
+import {MyCommonContext } from './wrapper.component';
 
-const Main1Component: FunctionComponent = () => {
+const ChildComponent: FunctionComponent = () => {
     const {showSpinner, hideSpinner} = useContext(MyCommonContext);
 
     const display = ()=>{
-        showSpinner();
+        if(!!showSpinner) showSpinner("test test");
         console.log("Test1 window setTimeout")
-        window.setTimeout(()=>{hideSpinner();}, 1000);
+        window.setTimeout(()=>{if(!!hideSpinner) hideSpinner();}, 1000);
     }
 
     console.log("Test1 render;")
@@ -19,4 +19,4 @@ const Main1Component: FunctionComponent = () => {
         </div>
     )
 }
-export default Main1Component;
+export default ChildComponent;

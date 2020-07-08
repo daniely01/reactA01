@@ -1,32 +1,29 @@
-import React, { FunctionComponent, useRef, useImperativeHandle, useState, forwardRef } from 'react';
+import React, { FunctionComponent } from 'react';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import {WrapperComponent} from './wrapper.component';
+import ChildComponent from './child.component';
 
-interface ChildRef {
-  display:  (message:string)=>void
-};
+const theme = createMuiTheme({
+  typography: {
+    button: {
+      textTransform: 'none',
+    }
+  }
+});
 
-const App2: FunctionComponent = () => {
-  const childRef = useRef<ChildRef>(null);
+const App: FunctionComponent = () => {
   return (
-    <div>
-      <button onClick={()=>{
-        if(!!childRef.current){
-          childRef.current.display("test test test");
-        }
-      }}>Child Alert</button>
-      <ChildDiv ref={childRef}></ChildDiv>
-    </div>
+    <ThemeProvider theme={theme}>
+          <header>
+            Demo A01 |
+          </header>
+          <WrapperComponent>
+            <main>
+              <ChildComponent></ChildComponent>
+            </main>
+          </WrapperComponent>
+    </ThemeProvider>
   );
 }
-const ChildDivFunc = (props: any, ref: any)=>{
-  const [state, setState] = useState("");
-  useImperativeHandle(ref, () => ({    
-    display: (message: string) => {
-      setState(message);
-    }
-  }));
-  return (
-    <div>Child Div Display: {state}</div>
-  )
-}
-const ChildDiv = forwardRef(ChildDivFunc);
-export default App2;
+
+export default App;
