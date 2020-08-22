@@ -32,6 +32,7 @@ const SpinnerFunc = (props: any, ref: any) => {
     const context = useContext(AppContext)
     context.showSpinner = (): void => { setVisible(true); };
     context.hideSpinner = (): void => { setVisible(false); };
+    
     console.log("dye - SpinnertFunc spinner visble: " + visible)
 
     return (
