@@ -1,6 +1,7 @@
-import React, { useState, useImperativeHandle } from 'react';
+import React, { useState, useImperativeHandle, useContext } from 'react';
 import { CircularProgress, makeStyles, Box, Paper, Typography } from '@material-ui/core';
 import clsx from 'clsx';
+import { AppContext } from './App';
 
 export interface ISpinnerHandler {
     showSpinner(): void,
@@ -28,9 +29,10 @@ const useStyles = makeStyles({
 const SpinnerFunc = (props: any, ref: any) => {
     const classes = useStyles();
     const [visible, setVisible] = useState(false);
-    const showSpinner = (): void => { setVisible(true); };
-    const hideSpinner = (): void => { setVisible(false); };
-    useImperativeHandle(ref, () => { return { showSpinner, hideSpinner } });
+    const context = useContext(AppContext)
+    context.showSpinner = (): void => { setVisible(true); };
+    context.hideSpinner = (): void => { setVisible(false); };
+    console.log("dye - SpinnertFunc spinner visble: " + visible)
 
     return (
         <Box className={clsx({ [classes.loader]: visible }, { [classes.hide]: !visible })}>

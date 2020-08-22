@@ -16,7 +16,7 @@ const ChildComponent: FunctionComponent<IChildProp> = (props: IChildProp) => {
         window.setTimeout(()=>{if(!!hideSpinner) hideSpinner();}, 1000);
     }
 
-    console.log(`${name} render`)
+    console.log(`dye -- Child Component ${name} render`)
     return (
         <div>
             <h2>{name}</h2>
